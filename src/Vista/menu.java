@@ -5,6 +5,12 @@
  */
 package Vista;
 
+import Vista.MenuVertical.Factura;
+import Vista.MenuVertical.Inicio;
+import Vista.MenuVertical.Reportes;
+import Vista.MenuVertical.Stock;
+import Vista.MenuVertical.Ventas;
+import Vista.MenuVertical.Compras;
 import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialLighterIJTheme;
@@ -224,15 +230,15 @@ public class menu extends javax.swing.JFrame {
     }//GEN-LAST:event_inicio_btnActionPerformed
 
     private void compras_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compras_btnActionPerformed
-        ShowJPanel(new Articulo());
+        ShowJPanel(new Compras());
     }//GEN-LAST:event_compras_btnActionPerformed
 
     private void ventas_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ventas_btnActionPerformed
-        ShowJPanel(new Stock());
+        ShowJPanel(new Ventas());
     }//GEN-LAST:event_ventas_btnActionPerformed
 
     private void stock_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stock_btnActionPerformed
-        ShowJPanel(new Clientes());
+        ShowJPanel(new Stock());
     }//GEN-LAST:event_stock_btnActionPerformed
 
     private void reportes_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportes_btnActionPerformed
