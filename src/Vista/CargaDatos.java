@@ -24,7 +24,7 @@ public class CargaDatos extends javax.swing.JPanel {
     private void ShowJPanel(JPanel p){
     
        
-        p.setSize(860, 400);
+        p.setSize(880, 420);
         p.setLocation(0,0);
         
         contenido.removeAll();
@@ -65,37 +65,32 @@ public class CargaDatos extends javax.swing.JPanel {
             .addGroup(contenidoLayout.createSequentialGroup()
                 .addGap(139, 139, 139)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(155, 155, 155))
+                .addGap(518, 518, 518)
+                .addComponent(jLabel2))
             .addGroup(contenidoLayout.createSequentialGroup()
                 .addGap(231, 231, 231)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 295, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addGap(266, 266, 266))
+                .addGap(315, 315, 315)
+                .addComponent(jLabel4))
             .addGroup(contenidoLayout.createSequentialGroup()
                 .addGap(38, 38, 38)
-                .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jButton1))
         );
         contenidoLayout.setVerticalGroup(
             contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(contenidoLayout.createSequentialGroup()
+                .addGap(68, 68, 68)
                 .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
                     .addGroup(contenidoLayout.createSequentialGroup()
-                        .addGap(68, 68, 68)
-                        .addComponent(jLabel1))
-                    .addGroup(contenidoLayout.createSequentialGroup()
-                        .addGap(79, 79, 79)
+                        .addGap(11, 11, 11)
                         .addComponent(jLabel2)))
                 .addGap(117, 117, 117)
-                .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addContainerGap())
+                .addGap(162, 162, 162)
+                .addComponent(jButton1))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

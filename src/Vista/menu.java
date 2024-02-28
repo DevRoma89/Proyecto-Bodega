@@ -41,7 +41,7 @@ public class menu extends javax.swing.JFrame {
     private void ShowJPanel(JPanel p){
     
        
-        p.setSize(860, 400);
+        p.setSize(880, 420);
         p.setLocation(0,0);
         
         contenido.removeAll();
@@ -79,6 +79,7 @@ public class menu extends javax.swing.JFrame {
         panel_latera.setBackground(new java.awt.Color(33, 93, 251));
         panel_latera.setMaximumSize(new java.awt.Dimension(210, 700));
         panel_latera.setPreferredSize(new java.awt.Dimension(210, 550));
+        panel_latera.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         factura_btn.setBackground(new java.awt.Color(3, 55, 192));
         factura_btn.setForeground(new java.awt.Color(255, 255, 255));
@@ -89,6 +90,7 @@ public class menu extends javax.swing.JFrame {
                 factura_btnActionPerformed(evt);
             }
         });
+        panel_latera.add(factura_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 210, 50));
 
         inicio_btn.setBackground(new java.awt.Color(3, 55, 192));
         inicio_btn.setForeground(new java.awt.Color(255, 255, 255));
@@ -99,6 +101,7 @@ public class menu extends javax.swing.JFrame {
                 inicio_btnActionPerformed(evt);
             }
         });
+        panel_latera.add(inicio_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 210, 50));
 
         articulo_btn.setBackground(new java.awt.Color(3, 55, 192));
         articulo_btn.setForeground(new java.awt.Color(255, 255, 255));
@@ -109,6 +112,7 @@ public class menu extends javax.swing.JFrame {
                 articulo_btnActionPerformed(evt);
             }
         });
+        panel_latera.add(articulo_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 210, 50));
 
         stock_btn.setBackground(new java.awt.Color(3, 55, 192));
         stock_btn.setForeground(new java.awt.Color(255, 255, 255));
@@ -119,6 +123,7 @@ public class menu extends javax.swing.JFrame {
                 stock_btnActionPerformed(evt);
             }
         });
+        panel_latera.add(stock_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 210, 50));
 
         clientes_btn.setBackground(new java.awt.Color(3, 55, 192));
         clientes_btn.setForeground(new java.awt.Color(255, 255, 255));
@@ -129,6 +134,7 @@ public class menu extends javax.swing.JFrame {
                 clientes_btnActionPerformed(evt);
             }
         });
+        panel_latera.add(clientes_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 210, 50));
 
         proveedores_btn.setBackground(new java.awt.Color(3, 55, 192));
         proveedores_btn.setForeground(new java.awt.Color(255, 255, 255));
@@ -139,42 +145,10 @@ public class menu extends javax.swing.JFrame {
                 proveedores_btnActionPerformed(evt);
             }
         });
+        panel_latera.add(proveedores_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 210, 50));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logoP.png"))); // NOI18N
-
-        javax.swing.GroupLayout panel_lateraLayout = new javax.swing.GroupLayout(panel_latera);
-        panel_latera.setLayout(panel_lateraLayout);
-        panel_lateraLayout.setHorizontalGroup(
-            panel_lateraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_lateraLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel1))
-            .addComponent(inicio_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(factura_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(articulo_btn, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-            .addComponent(stock_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(clientes_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(proveedores_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        panel_lateraLayout.setVerticalGroup(
-            panel_lateraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_lateraLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(jLabel1)
-                .addGap(25, 25, 25)
-                .addComponent(inicio_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(factura_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(articulo_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(stock_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(clientes_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(proveedores_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
-        );
+        panel_latera.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 143, 118));
 
         panel_horizontal.setBackground(new java.awt.Color(72, 116, 232));
 
@@ -189,17 +163,18 @@ public class menu extends javax.swing.JFrame {
             .addGap(0, 110, Short.MAX_VALUE)
         );
 
+        contenido.setBackground(new java.awt.Color(255, 255, 255));
         contenido.setPreferredSize(new java.awt.Dimension(0, 0));
 
         javax.swing.GroupLayout contenidoLayout = new javax.swing.GroupLayout(contenido);
         contenido.setLayout(contenidoLayout);
         contenidoLayout.setHorizontalGroup(
             contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 860, Short.MAX_VALUE)
+            .addGap(0, 880, Short.MAX_VALUE)
         );
         contenidoLayout.setVerticalGroup(
             contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 420, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout fondoLayout = new javax.swing.GroupLayout(fondo);
@@ -210,9 +185,7 @@ public class menu extends javax.swing.JFrame {
                 .addComponent(panel_latera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panel_horizontal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(fondoLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(contenido, javax.swing.GroupLayout.PREFERRED_SIZE, 860, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(contenido, javax.swing.GroupLayout.PREFERRED_SIZE, 880, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         fondoLayout.setVerticalGroup(
             fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -220,8 +193,8 @@ public class menu extends javax.swing.JFrame {
             .addGroup(fondoLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(panel_horizontal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(contenido, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, 0)
+                .addComponent(contenido, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
