@@ -64,10 +64,10 @@ public class menu extends javax.swing.JFrame {
         panel_latera = new javax.swing.JPanel();
         factura_btn = new javax.swing.JButton();
         inicio_btn = new javax.swing.JButton();
-        articulo_btn = new javax.swing.JButton();
+        compras_btn = new javax.swing.JButton();
+        ventas_btn = new javax.swing.JButton();
         stock_btn = new javax.swing.JButton();
-        clientes_btn = new javax.swing.JButton();
-        proveedores_btn = new javax.swing.JButton();
+        reportes_btn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         panel_horizontal = new javax.swing.JPanel();
         contenido = new javax.swing.JPanel();
@@ -103,16 +103,27 @@ public class menu extends javax.swing.JFrame {
         });
         panel_latera.add(inicio_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 210, 50));
 
-        articulo_btn.setBackground(new java.awt.Color(3, 55, 192));
-        articulo_btn.setForeground(new java.awt.Color(255, 255, 255));
-        articulo_btn.setText("ARTICULOS");
-        articulo_btn.setBorderPainted(false);
-        articulo_btn.addActionListener(new java.awt.event.ActionListener() {
+        compras_btn.setBackground(new java.awt.Color(3, 55, 192));
+        compras_btn.setForeground(new java.awt.Color(255, 255, 255));
+        compras_btn.setText("COMPRAS");
+        compras_btn.setBorderPainted(false);
+        compras_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                articulo_btnActionPerformed(evt);
+                compras_btnActionPerformed(evt);
             }
         });
-        panel_latera.add(articulo_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 210, 50));
+        panel_latera.add(compras_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 210, 50));
+
+        ventas_btn.setBackground(new java.awt.Color(3, 55, 192));
+        ventas_btn.setForeground(new java.awt.Color(255, 255, 255));
+        ventas_btn.setText("VENTAS");
+        ventas_btn.setBorderPainted(false);
+        ventas_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ventas_btnActionPerformed(evt);
+            }
+        });
+        panel_latera.add(ventas_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 210, 50));
 
         stock_btn.setBackground(new java.awt.Color(3, 55, 192));
         stock_btn.setForeground(new java.awt.Color(255, 255, 255));
@@ -123,29 +134,18 @@ public class menu extends javax.swing.JFrame {
                 stock_btnActionPerformed(evt);
             }
         });
-        panel_latera.add(stock_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 210, 50));
+        panel_latera.add(stock_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 210, 50));
 
-        clientes_btn.setBackground(new java.awt.Color(3, 55, 192));
-        clientes_btn.setForeground(new java.awt.Color(255, 255, 255));
-        clientes_btn.setText("CLIENTES ");
-        clientes_btn.setBorderPainted(false);
-        clientes_btn.addActionListener(new java.awt.event.ActionListener() {
+        reportes_btn.setBackground(new java.awt.Color(3, 55, 192));
+        reportes_btn.setForeground(new java.awt.Color(255, 255, 255));
+        reportes_btn.setText("REPORTES");
+        reportes_btn.setBorderPainted(false);
+        reportes_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clientes_btnActionPerformed(evt);
+                reportes_btnActionPerformed(evt);
             }
         });
-        panel_latera.add(clientes_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 210, 50));
-
-        proveedores_btn.setBackground(new java.awt.Color(3, 55, 192));
-        proveedores_btn.setForeground(new java.awt.Color(255, 255, 255));
-        proveedores_btn.setText("REPORTES");
-        proveedores_btn.setBorderPainted(false);
-        proveedores_btn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                proveedores_btnActionPerformed(evt);
-            }
-        });
-        panel_latera.add(proveedores_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 210, 50));
+        panel_latera.add(reportes_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 210, 50));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logoP.png"))); // NOI18N
         panel_latera.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 143, 118));
@@ -223,21 +223,21 @@ public class menu extends javax.swing.JFrame {
         ShowJPanel(new Inicio());
     }//GEN-LAST:event_inicio_btnActionPerformed
 
-    private void articulo_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_articulo_btnActionPerformed
+    private void compras_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compras_btnActionPerformed
         ShowJPanel(new Articulo());
-    }//GEN-LAST:event_articulo_btnActionPerformed
+    }//GEN-LAST:event_compras_btnActionPerformed
+
+    private void ventas_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ventas_btnActionPerformed
+        ShowJPanel(new Stock());
+    }//GEN-LAST:event_ventas_btnActionPerformed
 
     private void stock_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stock_btnActionPerformed
-        ShowJPanel(new Stock());
+        ShowJPanel(new Clientes());
     }//GEN-LAST:event_stock_btnActionPerformed
 
-    private void clientes_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientes_btnActionPerformed
-        ShowJPanel(new Clientes());
-    }//GEN-LAST:event_clientes_btnActionPerformed
-
-    private void proveedores_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proveedores_btnActionPerformed
+    private void reportes_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportes_btnActionPerformed
        ShowJPanel(new Reportes());
-    }//GEN-LAST:event_proveedores_btnActionPerformed
+    }//GEN-LAST:event_reportes_btnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -275,8 +275,7 @@ public class menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton articulo_btn;
-    private javax.swing.JButton clientes_btn;
+    private javax.swing.JButton compras_btn;
     private javax.swing.JPanel contenido;
     private javax.swing.JButton factura_btn;
     private javax.swing.JPanel fondo;
@@ -284,7 +283,8 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel panel_horizontal;
     private javax.swing.JPanel panel_latera;
-    private javax.swing.JButton proveedores_btn;
+    private javax.swing.JButton reportes_btn;
     private javax.swing.JButton stock_btn;
+    private javax.swing.JButton ventas_btn;
     // End of variables declaration//GEN-END:variables
 }
