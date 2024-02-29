@@ -93,6 +93,7 @@ public class menu extends javax.swing.JFrame {
         reportes_btn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         panel_horizontal = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         contenido = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -175,17 +176,13 @@ public class menu extends javax.swing.JFrame {
         panel_latera.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 170));
 
         panel_horizontal.setBackground(new java.awt.Color(72, 116, 232));
+        panel_horizontal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout panel_horizontalLayout = new javax.swing.GroupLayout(panel_horizontal);
-        panel_horizontal.setLayout(panel_horizontalLayout);
-        panel_horizontalLayout.setHorizontalGroup(
-            panel_horizontalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 880, Short.MAX_VALUE)
-        );
-        panel_horizontalLayout.setVerticalGroup(
-            panel_horizontalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 110, Short.MAX_VALUE)
-        );
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("BIENVENIDO: \"USUARIO\"");
+        panel_horizontal.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 53, 422, 46));
 
         contenido.setBackground(new java.awt.Color(255, 255, 255));
         contenido.setPreferredSize(new java.awt.Dimension(0, 0));
@@ -207,9 +204,9 @@ public class menu extends javax.swing.JFrame {
             fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoLayout.createSequentialGroup()
                 .addComponent(panel_latera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panel_horizontal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(contenido, javax.swing.GroupLayout.PREFERRED_SIZE, 880, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(contenido, javax.swing.GroupLayout.DEFAULT_SIZE, 880, Short.MAX_VALUE)
+                    .addComponent(panel_horizontal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         fondoLayout.setVerticalGroup(
             fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -305,6 +302,7 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JPanel fondo;
     private javax.swing.JButton inicio_btn;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel panel_horizontal;
     private javax.swing.JPanel panel_latera;
     private javax.swing.JButton reportes_btn;
