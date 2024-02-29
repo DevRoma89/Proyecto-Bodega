@@ -31,7 +31,7 @@ public class menu extends javax.swing.JFrame {
        
         FlatLightLaf.setup();
         initComponents();
-        this.setLocationRelativeTo(null);
+        setLocationRelativeTo(null);
         initContent();
         
        
