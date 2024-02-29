@@ -103,7 +103,6 @@ public class menu extends javax.swing.JFrame {
         panel_latera.setBackground(new java.awt.Color(33, 93, 251));
         panel_latera.setMaximumSize(new java.awt.Dimension(210, 700));
         panel_latera.setPreferredSize(new java.awt.Dimension(210, 550));
-        panel_latera.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         factura_btn.setBackground(new java.awt.Color(3, 55, 192));
         factura_btn.setForeground(new java.awt.Color(255, 255, 255));
@@ -114,7 +113,6 @@ public class menu extends javax.swing.JFrame {
                 factura_btnActionPerformed(evt);
             }
         });
-        panel_latera.add(factura_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 210, 50));
 
         inicio_btn.setBackground(new java.awt.Color(3, 55, 192));
         inicio_btn.setForeground(new java.awt.Color(255, 255, 255));
@@ -125,7 +123,6 @@ public class menu extends javax.swing.JFrame {
                 inicio_btnActionPerformed(evt);
             }
         });
-        panel_latera.add(inicio_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 210, 50));
 
         compras_btn.setBackground(new java.awt.Color(3, 55, 192));
         compras_btn.setForeground(new java.awt.Color(255, 255, 255));
@@ -136,7 +133,6 @@ public class menu extends javax.swing.JFrame {
                 compras_btnActionPerformed(evt);
             }
         });
-        panel_latera.add(compras_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 210, 50));
 
         ventas_btn.setBackground(new java.awt.Color(3, 55, 192));
         ventas_btn.setForeground(new java.awt.Color(255, 255, 255));
@@ -147,7 +143,6 @@ public class menu extends javax.swing.JFrame {
                 ventas_btnActionPerformed(evt);
             }
         });
-        panel_latera.add(ventas_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 210, 50));
 
         stock_btn.setBackground(new java.awt.Color(3, 55, 192));
         stock_btn.setForeground(new java.awt.Color(255, 255, 255));
@@ -158,7 +153,6 @@ public class menu extends javax.swing.JFrame {
                 stock_btnActionPerformed(evt);
             }
         });
-        panel_latera.add(stock_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 210, 50));
 
         reportes_btn.setBackground(new java.awt.Color(3, 55, 192));
         reportes_btn.setForeground(new java.awt.Color(255, 255, 255));
@@ -169,20 +163,61 @@ public class menu extends javax.swing.JFrame {
                 reportes_btnActionPerformed(evt);
             }
         });
-        panel_latera.add(reportes_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 210, 50));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logoP.png"))); // NOI18N
-        panel_latera.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 170));
+
+        javax.swing.GroupLayout panel_lateraLayout = new javax.swing.GroupLayout(panel_latera);
+        panel_latera.setLayout(panel_lateraLayout);
+        panel_lateraLayout.setHorizontalGroup(
+            panel_lateraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(inicio_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(factura_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(compras_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(ventas_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(stock_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(reportes_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        panel_lateraLayout.setVerticalGroup(
+            panel_lateraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_lateraLayout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(inicio_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(factura_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(compras_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(ventas_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(stock_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(reportes_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         panel_horizontal.setBackground(new java.awt.Color(72, 116, 232));
-        panel_horizontal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("BIENVENIDO: \"USUARIO\"");
-        panel_horizontal.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 53, 422, 46));
+
+        javax.swing.GroupLayout panel_horizontalLayout = new javax.swing.GroupLayout(panel_horizontal);
+        panel_horizontal.setLayout(panel_horizontalLayout);
+        panel_horizontalLayout.setHorizontalGroup(
+            panel_horizontalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_horizontalLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        panel_horizontalLayout.setVerticalGroup(
+            panel_horizontalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_horizontalLayout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         contenido.setBackground(new java.awt.Color(255, 255, 255));
         contenido.setPreferredSize(new java.awt.Dimension(0, 0));
@@ -288,10 +323,8 @@ public class menu extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new menu().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new menu().setVisible(true);
         });
     }
 
