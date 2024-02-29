@@ -15,6 +15,10 @@ import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialLighterIJTheme;
 import java.awt.BorderLayout;
+import java.awt.KeyEventDispatcher;
+import java.awt.KeyboardFocusManager;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 
@@ -33,6 +37,19 @@ public class menu extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         initContent();
+       
+        
+         KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(new KeyEventDispatcher() {
+            @Override
+            public boolean dispatchKeyEvent(KeyEvent e) {
+                // Verificar si la tecla presionada es la tecla ESC (código 27)
+                if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+                    // Ejecutar la misma acción que cuando se presiona el botón "Inicio"
+                    ShowJPanel(new Inicio());
+                }
+                return false;
+            }
+        });
         
        
         
@@ -41,7 +58,7 @@ public class menu extends javax.swing.JFrame {
     
     private void initContent() {
      ShowJPanel(new Inicio());
-        
+
     }
     
     private void ShowJPanel(JPanel p){
@@ -153,8 +170,9 @@ public class menu extends javax.swing.JFrame {
         });
         panel_latera.add(reportes_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 210, 50));
 
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logoP.png"))); // NOI18N
-        panel_latera.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 143, 118));
+        panel_latera.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 170));
 
         panel_horizontal.setBackground(new java.awt.Color(72, 116, 232));
 
