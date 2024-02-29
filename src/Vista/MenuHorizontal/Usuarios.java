@@ -60,7 +60,7 @@ public class Usuarios extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jLabel4.setText("BUSQUEDA DE MARCAS");
+        jLabel4.setText("BUSQUEDA DE USUARIOS");
 
         jButton2.setText("BUSCAR");
 

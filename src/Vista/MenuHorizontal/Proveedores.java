@@ -66,7 +66,7 @@ public class Proveedores extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jLabel2.setText("BUSQUEDA DE ARTICULOS");
+        jLabel2.setText("BUSQUEDA DE PROVEEDORES");
 
         jLabel3.setText("NOMBRE");
 

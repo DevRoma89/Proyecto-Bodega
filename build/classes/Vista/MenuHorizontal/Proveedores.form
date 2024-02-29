@@ -186,7 +186,7 @@
         </Container>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="BUSQUEDA DE ARTICULOS"/>
+            <Property name="text" type="java.lang.String" value="BUSQUEDA DE PROVEEDORES"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField1">

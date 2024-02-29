@@ -63,7 +63,7 @@ public class Paises extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jLabel4.setText("BUSQUEDA DE MARCAS");
+        jLabel4.setText("BUSQUEDA DE PAISES");
 
         jButton2.setText("BUSCAR");
 
@@ -94,9 +94,6 @@ public class Paises extends javax.swing.JPanel {
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 860, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(contenidoLayout.createSequentialGroup()
                         .addGap(70, 70, 70)
-                        .addComponent(jLabel4))
-                    .addGroup(contenidoLayout.createSequentialGroup()
-                        .addGap(70, 70, 70)
                         .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(contenidoLayout.createSequentialGroup()
                                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -107,7 +104,10 @@ public class Paises extends javax.swing.JPanel {
                                 .addGap(20, 20, 20)
                                 .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                    .addGroup(contenidoLayout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addComponent(jLabel4)))
                 .addGap(10, 10, 10))
         );
         contenidoLayout.setVerticalGroup(
