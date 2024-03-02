@@ -21,8 +21,8 @@ public class Conexion {
     public Connection getConnection(){
     
         try {
-            String myDB = "jdbc:mysql://localhost:3306:bodega?serverTimezone=UTC";
-            con = DriverManager.getConnection(myDB, "root", "root");
+            String myDB = "jdbc:postgresql://localhost:5432/bodega";
+            con = DriverManager.getConnection(myDB, "postgres", "root");
             return con;
         } catch (SQLException e) {
             System.out.println(e.toString());
