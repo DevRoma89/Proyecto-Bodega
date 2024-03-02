@@ -16,10 +16,8 @@ public class Main {
     
     public static void main(String[] args) {
         
-        menu m = new menu();
-        m.setLocationRelativeTo(null);
-        m.setVisible(true);
-        
+        vista v = new vista();
+       v.setVisible(true);
         
         
         

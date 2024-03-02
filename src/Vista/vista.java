@@ -5,6 +5,7 @@
  */
 package Vista;
 
+import Controlador.Validar;
 import com.formdev.flatlaf.FlatLightLaf;
 
 /**
@@ -19,6 +20,7 @@ public class vista extends javax.swing.JFrame {
     public vista() {
          FlatLightLaf.setup();
         initComponents();
+        
     }
 
     /**
@@ -33,15 +35,15 @@ public class vista extends javax.swing.JFrame {
         jCheckBox1 = new javax.swing.JCheckBox();
         fondo = new javax.swing.JPanel();
         panel_login = new javax.swing.JPanel();
-        ususario_txt = new javax.swing.JTextField();
+        txtUsuario = new javax.swing.JTextField();
         login_btn = new javax.swing.JButton();
-        contraseña_txt = new javax.swing.JTextField();
+        txtContraseña = new javax.swing.JTextField();
         user_icon = new javax.swing.JLabel();
         pass_icon = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
-        jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
 
         jCheckBox1.setText("jCheckBox1");
 
@@ -52,13 +54,13 @@ public class vista extends javax.swing.JFrame {
 
         panel_login.setBackground(new java.awt.Color(255, 255, 255));
         panel_login.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panel_login.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        ususario_txt.setBackground(new java.awt.Color(204, 204, 204));
-        ususario_txt.setText("jTextField1");
-        ususario_txt.setBorder(null);
-        ususario_txt.addActionListener(new java.awt.event.ActionListener() {
+        txtUsuario.setBackground(new java.awt.Color(204, 204, 204));
+        txtUsuario.setBorder(null);
+        txtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ususario_txtActionPerformed(evt);
+                txtUsuarioActionPerformed(evt);
             }
         });
 
@@ -71,12 +73,11 @@ public class vista extends javax.swing.JFrame {
             }
         });
 
-        contraseña_txt.setBackground(new java.awt.Color(204, 204, 204));
-        contraseña_txt.setText("jTextField1");
-        contraseña_txt.setBorder(null);
-        contraseña_txt.addActionListener(new java.awt.event.ActionListener() {
+        txtContraseña.setBackground(new java.awt.Color(204, 204, 204));
+        txtContraseña.setBorder(null);
+        txtContraseña.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                contraseña_txtActionPerformed(evt);
+                txtContraseñaActionPerformed(evt);
             }
         });
 
@@ -98,14 +99,14 @@ public class vista extends javax.swing.JFrame {
                     .addGroup(panel_loginLayout.createSequentialGroup()
                         .addComponent(user_icon)
                         .addGap(0, 0, 0)
-                        .addComponent(ususario_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(login_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jSeparator1)
                         .addGroup(panel_loginLayout.createSequentialGroup()
                             .addComponent(pass_icon)
                             .addGap(0, 0, 0)
-                            .addComponent(contraseña_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jSeparator2)))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
@@ -115,13 +116,13 @@ public class vista extends javax.swing.JFrame {
                 .addGap(94, 94, 94)
                 .addGroup(panel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(user_icon)
-                    .addComponent(ususario_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(4, 4, 4)
                 .addGroup(panel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pass_icon)
-                    .addComponent(contraseña_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
@@ -130,6 +131,9 @@ public class vista extends javax.swing.JFrame {
         );
 
         fondo.add(panel_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, -1, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo.png"))); // NOI18N
+        fondo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(72, 116, 232));
 
@@ -146,9 +150,6 @@ public class vista extends javax.swing.JFrame {
 
         fondo.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, 250, 550));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo.png"))); // NOI18N
-        fondo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -162,18 +163,19 @@ public class vista extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void contraseña_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contraseña_txtActionPerformed
+ Validar v = new Validar();
+    private void txtContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraseñaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_contraseña_txtActionPerformed
+    }//GEN-LAST:event_txtContraseñaActionPerformed
 
     private void login_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_btnActionPerformed
-        // TODO add your handling code here:
+     
+      v.ValidarLogin();
     }//GEN-LAST:event_login_btnActionPerformed
 
-    private void ususario_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ususario_txtActionPerformed
+    private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ususario_txtActionPerformed
+    }//GEN-LAST:event_txtUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -211,17 +213,17 @@ public class vista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField contraseña_txt;
     private javax.swing.JPanel fondo;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JButton login_btn;
+    public javax.swing.JButton login_btn;
     private javax.swing.JPanel panel_login;
     private javax.swing.JLabel pass_icon;
+    public javax.swing.JTextField txtContraseña;
+    public javax.swing.JTextField txtUsuario;
     private javax.swing.JLabel user_icon;
-    private javax.swing.JTextField ususario_txt;
     // End of variables declaration//GEN-END:variables
 }
