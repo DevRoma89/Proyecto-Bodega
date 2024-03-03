@@ -29,7 +29,7 @@ public class Login {
         public Usuario log(String User, String Pass){
         
             Usuario u = new Usuario();
-            String sql = "SELECT * FROM public.\"Usuario\" Where \"NombreUsuario\" = ? AND \"Contraseña\" = ? "; 
+            String sql = "SELECT * FROM \"Usuarios\" Where \"User\" = ? AND \"Pass\" = ? "; 
             try {
                 con = cn.getConnection();
                 ps = con.prepareStatement(sql);
@@ -39,9 +39,9 @@ public class Login {
                 
                 if(rs.next()){
                 
-                    u.setCodUsuario(rs.getInt("CodUsuario"));
-                    u.setNombreUsuario(rs.getString("NombreUsuario"));
-                    u.setContraseña(rs.getString("Contraseña"));
+                    u.setCodUsuario(rs.getInt("IdUsuario"));
+                    u.setNombreUsuario(rs.getString("User"));
+                    u.setContraseña(rs.getString("Pass"));
                 
                 } 
             

@@ -62,11 +62,11 @@ public class vista extends javax.swing.JFrame {
         panel_login = new javax.swing.JPanel();
         txtUsuario = new javax.swing.JTextField();
         login_btn = new javax.swing.JButton();
-        txtContraseña = new javax.swing.JTextField();
         user_icon = new javax.swing.JLabel();
         pass_icon = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
+        txtContraseña = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
 
@@ -98,14 +98,6 @@ public class vista extends javax.swing.JFrame {
             }
         });
 
-        txtContraseña.setBackground(new java.awt.Color(204, 204, 204));
-        txtContraseña.setBorder(null);
-        txtContraseña.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtContraseñaActionPerformed(evt);
-            }
-        });
-
         user_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/user.png"))); // NOI18N
 
         pass_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/padlock.png"))); // NOI18N
@@ -114,26 +106,34 @@ public class vista extends javax.swing.JFrame {
 
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
 
+        txtContraseña.setBackground(new java.awt.Color(204, 204, 204));
+        txtContraseña.setBorder(null);
+
         javax.swing.GroupLayout panel_loginLayout = new javax.swing.GroupLayout(panel_login);
         panel_login.setLayout(panel_loginLayout);
         panel_loginLayout.setHorizontalGroup(
             panel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_loginLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
+                .addComponent(user_icon)
+                .addGap(0, 0, 0)
+                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(panel_loginLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
                 .addGroup(panel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel_loginLayout.createSequentialGroup()
-                        .addComponent(user_icon)
-                        .addGap(0, 0, 0)
-                        .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(login_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jSeparator1)
-                        .addGroup(panel_loginLayout.createSequentialGroup()
-                            .addComponent(pass_icon)
-                            .addGap(0, 0, 0)
-                            .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jSeparator2)))
-                .addContainerGap(30, Short.MAX_VALUE))
+                        .addGap(50, 50, 50)
+                        .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel_loginLayout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pass_icon)))
+            .addGroup(panel_loginLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(panel_loginLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(login_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panel_loginLayout.setVerticalGroup(
             panel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,20 +142,21 @@ public class vista extends javax.swing.JFrame {
                 .addGroup(panel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(user_icon)
                     .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(4, 4, 4)
+                .addGap(6, 6, 6)
                 .addGroup(panel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pass_icon)
-                    .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panel_loginLayout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addGroup(panel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pass_icon))))
+                .addGap(11, 11, 11)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
-                .addComponent(login_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addComponent(login_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        fondo.add(panel_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, -1, -1));
+        fondo.add(panel_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, 380, 360));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo.png"))); // NOI18N
         fondo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
@@ -189,10 +190,6 @@ public class vista extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
  
-    private void txtContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraseñaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtContraseñaActionPerformed
-
     private void login_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_btnActionPerformed
     
       ValidarLogin();
@@ -247,7 +244,7 @@ public class vista extends javax.swing.JFrame {
     public javax.swing.JButton login_btn;
     private javax.swing.JPanel panel_login;
     private javax.swing.JLabel pass_icon;
-    public javax.swing.JTextField txtContraseña;
+    public javax.swing.JPasswordField txtContraseña;
     public javax.swing.JTextField txtUsuario;
     private javax.swing.JLabel user_icon;
     // End of variables declaration//GEN-END:variables
