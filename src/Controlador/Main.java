@@ -5,8 +5,10 @@
  */
 package Controlador;
 
+import Vista.MenuHorizontal.Paises;
 import Vista.menu;
 import Vista.vista;
+import java.sql.SQLException;
 
 /**
  *
@@ -17,9 +19,15 @@ public class Main {
     public static void main(String[] args) {
         
         vista v = new vista();
-        Validar validar = new Validar(v);
+        Paises oPaises = new Paises();
+        PaisDAO oPaisesDAO = new PaisDAO(oPaises);
+        Login login = new Login(v);
+        
         v.setVisible(true);
         
+         
+         
+       
         
         
     }
