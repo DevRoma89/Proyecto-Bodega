@@ -28,29 +28,7 @@ public class vista extends javax.swing.JFrame {
         
     }
     
-    public void ValidarLogin(){
-        
-        menu m = new menu();
-        Usuario u = new Usuario();
-        Login l = new Login();
-          String User = txtUsuario.getText();
-          String Pass = String.valueOf(txtContraseña.getText());
-          
-          u = l.log(User, Pass);
-          
-          if(u.getNombreUsuario()!= null && u.getContraseña()!= null ) {
-            m.setVisible(true);
-            dispose();
-           }else{
-              JOptionPane.showMessageDialog(null, "Contraseña o Usuario incorrectos ");
-              txtUsuario.setText("");
-              txtContraseña.setText("");
-          }
-          
-          
-                  
     
-    }
     
     
     @SuppressWarnings("unchecked")
@@ -192,7 +170,7 @@ public class vista extends javax.swing.JFrame {
  
     private void login_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_btnActionPerformed
     
-      ValidarLogin();
+     
     }//GEN-LAST:event_login_btnActionPerformed
 
     private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
