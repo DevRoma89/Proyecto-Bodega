@@ -7,19 +7,22 @@ package Controlador;
 
 import Modelo.Pais;
 import Vista.MenuHorizontal.Paises;
+import java.util.List;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
-/**
- *
- * @author augusto.ojeda
- */
+
+
+
 public class PaisDAO implements ActionListener {
     Paises oPaises = new Paises();
     Connection con ; 
@@ -36,19 +39,49 @@ public class PaisDAO implements ActionListener {
             con = oConexion.getConnection();
             ps = con.prepareStatement(sql);
             ps.setString(1, nombre);
-            int filasInsert = ps.executeUpdate(sql);
-            
+            int filasInsert = ps.executeUpdate();
+           oPaises.txtNombre.setText("");
             if( filasInsert > 0 ){
-                System.out.println("Insert exitoso");
+                JOptionPane.showMessageDialog(null,"Insert exitoso");
+                
             }else{
-                System.out.println("Fallo en Insert");
+               JOptionPane.showMessageDialog(null,"Insert fallido");
             }
+             
+             
             
         } catch (SQLException e) {
             System.out.println(e.toString());
         }
               
     }
+    
+    public List<Pais> BuscarPaises(String nombre){
+        List<Pais> listaPaises = new ArrayList<>();
+        String sql = "SELECT * FROM \"Paises\" WHERE \"NombrePais\" LIKE ? ";
+       
+        try {
+             con = oConexion.getConnection();
+             ps = con.prepareStatement(sql);
+             ps.setString(1, "%" + nombre + "%" );
+             rs = ps.executeQuery(sql);
+             
+             while (rs.next()) {
+                Pais oPais = new Pais(); 
+                oPais.setIdPais(rs.getInt(1));
+                oPais.setNombre(rs.getString(2));
+                
+                listaPaises.add(oPais);
+            }
+             
+        } catch (SQLException e) {
+        }
+        
+        
+        
+        return listaPaises;
+    }
+    
     
     public PaisDAO( Paises oPaises ){
        this.oPaises = oPaises;
@@ -60,20 +93,11 @@ public class PaisDAO implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == oPaises.btnCargar){
-           String Nombre =  oPaises.txtNombre.getText();
-           
-           if(Nombre != null ){
-               try {
-                   CargarPaises(Nombre);
-               } catch (SQLException ex) {
-                   Logger.getLogger(PaisDAO.class.getName()).log(Level.SEVERE, null, ex);
-               }
-           }
-           
-        }
+        
     }
     
     
     
 }
+
+  

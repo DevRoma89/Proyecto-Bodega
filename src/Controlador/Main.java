@@ -18,15 +18,14 @@ public class Main {
     
     public static void main(String[] args) {
         
+        
         vista v = new vista();
         Paises oPaises = new Paises();
         PaisDAO oPaisesDAO = new PaisDAO(oPaises);
         Login login = new Login(v);
         
         v.setVisible(true);
-        
-         
-         
+       
        
         
         
