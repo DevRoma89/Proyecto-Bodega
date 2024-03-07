@@ -12,14 +12,17 @@ import Vista.Menu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author augusto.ojeda
  */
-public class ControladorPais extends IF_Pais implements ActionListener {
+public class ControladorPais extends IF_Pais implements ActionListener , ListSelectionListener {
     
     Menu m = new Menu();
     Pais pais = new Pais();
@@ -31,43 +34,146 @@ public class ControladorPais extends IF_Pais implements ActionListener {
         this.btnAgregar.addActionListener(this);
         this.btnListar.addActionListener(this);
         this.btnBuscar.addActionListener(this);
+        this.btnDelete.addActionListener(this);
+        this.btnNuevo.addActionListener(this);
+        this.btnEditar.addActionListener(this);
+        this.btnActualizar.addActionListener(this);
+        this.tabla.getSelectionModel().addListSelectionListener(this);
+        
       
     }
-
+     @Override
+    public void valueChanged(ListSelectionEvent e) {
+        if (!e.getValueIsAdjusting()){
+            int fliaSeleccionada = tabla.getSelectedRow();
+            if(fliaSeleccionada != -1){
+            txtId.setText((String) tabla.getValueAt(fliaSeleccionada, 0).toString() ); // Obtener el valor de la columna 1
+            txtNom.setText((String) tabla.getValueAt(fliaSeleccionada, 1).toString() );
+            btnDelete.setEnabled(true);
+            btnEditar.setEnabled(true);
+            btnAgregar.setEnabled(false);
+            btnActualizar.setEnabled(false);
+            campo(2);
+         }
+           
+        }
+    }
+    
+    
     @Override
     public void actionPerformed(ActionEvent e) {
        
         if(e.getSource() == btnAgregar ){
+            
             String nombre = txtNom.getText();
             pais.setNombre(nombre);
             
             int r = dao.Insertar(pais);
+            campo(1);
+            limpiarTabla();
+            listarT(tabla);
+           
 
         }
         
         if(e.getSource() == btnListar){
             limpiarTabla();
             listarT(tabla);
+            
         }
         
         if(e.getSource() == btnBuscar){
  
                 limpiarTabla();
+                BuscarT(tabla);  
+                campo(3);
+                btnEditar.setEnabled(false);
+                btnDelete.setEnabled(false);
+        }
+        
+        if(e.getSource() == btnActualizar){
+                actualizar();
+                limpiarTabla();
                 BuscarT(tabla);
-            
         }
         
         if(e.getSource() == btnDelete){
+           
             eliminar();
             limpiarTabla();
-            listarT(tabla); 
+            listarT(tabla);  
+            campo(3);
+           
+        }
+        
+        if (e.getSource() == btnNuevo){
+           campo(1);
+           tabla.clearSelection();
+           btnAgregar.setEnabled(true);
+           btnDelete.setEnabled(false);
+           btnEditar.setEnabled(false);
+           btnActualizar.setEnabled(false);
+        }
+        
+        if (e.getSource() == btnEditar){
+            campo(4);
+            btnActualizar.setEnabled(true);
+            btnDelete.setEnabled(false);
+            tabla.clearSelection();
+        
         }
         
         
     }
     
+    public void campo(int opcion){
+        
+        if(opcion == 1 ){
+            txtId.setText("");
+            txtNom.setText("");
+            txtNom.setEditable(true);
+            txtNom.requestFocus();
+        }else if (opcion == 2 ){
+            txtNom.setEditable(false);
+            txtId.setEditable(false);
+          
+            
+        }else if (opcion == 3 ){
+             txtId.setText("");
+            txtNom.setText("");
+            txtNom.setEditable(false);
+            txtId.setEditable(false);
+        }else if (opcion == 4 ){
+         txtNom.setEditable(true);
+            txtNom.requestFocus();
+        }
+        
     
+    }
     
+    public void actualizar(){
+    
+        int id = Integer.parseInt(txtId.getText());
+        String nombre = txtNom.getText();
+        
+        dao.Actualizar(id, nombre);
+        
+        
+    }
+    
+    public void eliminar(){
+    
+        int fila = tabla.getSelectedRow();
+        if (fila == -1 ){
+         JOptionPane.showMessageDialog(null,"Debe Seleccionar una Fila...!!!");
+        }else {
+            int id = Integer.parseInt((String) tabla.getValueAt(fila, 0).toString());
+            dao.eliminar(id);
+            JOptionPane.showMessageDialog(null, "Usuario Eliminado...!!!");
+            
+        }
+    
+    }
     public void listarT(JTable tabla){
         modelo = (DefaultTableModel) tabla.getModel();
         tabla.setModel(modelo);
@@ -101,6 +207,8 @@ public class ControladorPais extends IF_Pais implements ActionListener {
             i = i - 1;
         }
     }
+
+   
     
     
     

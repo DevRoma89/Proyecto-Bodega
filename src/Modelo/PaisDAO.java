@@ -17,7 +17,31 @@ public class PaisDAO {
     Conexion conectar = new Conexion();
     Pais pais = new Pais();
     
-    
+    public int Actualizar(int id, String nombre){
+        int r = 0; 
+        
+        String sql = "UPDATE \"Paises\" SET \"NombrePais\"= ? WHERE \"idPais\" = ?";
+        
+        try {
+            con = conectar.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setInt(2, id);
+            ps.setString(1,nombre);
+            r = ps.executeUpdate();
+            if (r == 1 ){
+                JOptionPane.showMessageDialog(null, "Se a actualizado correctamento");
+                return 1;  
+            }else{
+                JOptionPane.showMessageDialog(null, "No se a actualizado correctamento");
+                return 0;
+            }
+
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+        
+        return r ;
+    }
     public int Insertar(Pais oPais){
         int r = 0 ; 
         
