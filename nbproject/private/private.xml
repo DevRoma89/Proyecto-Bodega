@@ -3,10 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/augusto.ojeda/Documents/NetBeansProjects/Bodega2.0/src/Vista/Menu.java</file>
-            <file>file:/C:/Users/augusto.ojeda/Documents/NetBeansProjects/Bodega2.0/src/Modelo/PaisDAO.java</file>
-            <file>file:/C:/Users/augusto.ojeda/Documents/NetBeansProjects/Bodega2.0/src/Vista/IF_Pais.java</file>
-            <file>file:/C:/Users/augusto.ojeda/Documents/NetBeansProjects/Bodega2.0/src/Controlador/ControladorPais.java</file>
+            <file>file:/C:/Users/augusto.ojeda/Documents/NetBeansProjects/Bodega2.0/src/MVC/Vista/IF_Ciudad.java</file>
+            <file>file:/C:/Users/augusto.ojeda/Documents/NetBeansProjects/Bodega2.0/src/MVC/Modelo/DAO/CiudadDAO.java</file>
+            <file>file:/C:/Users/augusto.ojeda/Documents/NetBeansProjects/Bodega2.0/src/MVC/Modelo/DAO/PaisDAO.java</file>
+            <file>file:/C:/Users/augusto.ojeda/Documents/NetBeansProjects/Bodega2.0/src/MVC/Controlador/ControladorCiudad.java</file>
+            <file>file:/C:/Users/augusto.ojeda/Documents/NetBeansProjects/Bodega2.0/src/MVC/Vista/Menu.java</file>
+            <file>file:/C:/Users/augusto.ojeda/Documents/NetBeansProjects/Bodega2.0/src/MVC/Modelo/Ciudad.java</file>
+            <file>file:/C:/Users/augusto.ojeda/Documents/NetBeansProjects/Bodega2.0/src/MVC/Modelo/Pais.java</file>
         </group>
     </open-files>
 </project-private>
