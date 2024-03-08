@@ -3,7 +3,7 @@ package MVC.Modelo;
 public class Ciudad {
 
     private int IdCiudad;
-    private String NombrePais;
+    private String NombreCiudad;
     private int IdPais;
 
     public Ciudad() {
@@ -11,7 +11,7 @@ public class Ciudad {
 
     public Ciudad(int IdCiudad, String NombrePais, int IdPais) {
         this.IdCiudad = IdCiudad;
-        this.NombrePais = NombrePais;
+        this.NombreCiudad = NombreCiudad;
         this.IdPais = IdPais;
     }
 
@@ -23,12 +23,12 @@ public class Ciudad {
         this.IdCiudad = IdCiudad;
     }
 
-    public String getNombrePais() {
-        return NombrePais;
+    public String getNombreCiudad() {
+        return  NombreCiudad;
     }
 
-    public void setNombrePais(String NombrePais) {
-        this.NombrePais = NombrePais;
+    public void setNombreCiudad(String NombrePais) {
+        this. NombreCiudad =  NombreCiudad;
     }
 
     public int getIdPais() {
