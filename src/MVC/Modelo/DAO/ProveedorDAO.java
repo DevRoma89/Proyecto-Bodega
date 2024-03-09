@@ -92,6 +92,47 @@ public class ProveedorDAO {
     
     //Update
     
+    public int Actualizar (Proveedor proveedor){
+    
+        int r = 0 ;
+        
+        String sql = "UPDATE \"Proveedores\"\n" +
+                     "SET \"Nombre\"= ?, \"RUC\"=?, \"Contacto\"=?, \"SitioWeb\"=?, \"IdCiudad\"=?\n" +
+                     "WHERE \"IdProveedor\" = ? ";
+        
+        try {
+            con = conectar.getConnection();
+            ps = con.prepareStatement(sql);
+            
+            ps.setString(1, proveedor.getNombreProveedor());
+            ps.setString(2, proveedor.getRUC());
+            ps.setString(3, proveedor.getContacto());
+            ps.setString(4, proveedor.getSitioWeb());
+            ps.setInt(5, proveedor.getIdCiudad());
+            ps.setInt(6, proveedor.getIdProveedor());
+            
+            r = ps.executeUpdate();
+            
+            if( r == 1 ){
+                
+                JOptionPane.showMessageDialog(null, "Se actualizo correctamente");
+                
+            }else{
+            
+                JOptionPane.showMessageDialog(null, "No se pudo actualizar");
+                
+            }
+            
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+        
+        
+        return r ;
+    
+    
+    }
+    
     //Delete 
     
     //AUX

@@ -50,6 +50,20 @@ public class ControladorProveedores extends IF_Proveedor implements ActionListen
         if( e.getSource() == btnListar){
             listarT(tabla);
         }
+        //Update 
+        if(e.getSource() == btnEditar){
+        
+            campo(4);
+            btnActualizar.setEnabled(true);
+            
+        }
+        
+        if( e.getSource() == btnActualizar){
+        
+            Actualizar(proveedor);
+        
+        }
+        
         
         
     }
@@ -57,7 +71,24 @@ public class ControladorProveedores extends IF_Proveedor implements ActionListen
     @Override
     public void valueChanged(ListSelectionEvent e) {
        
-        
+        if (!e.getValueIsAdjusting()){
+            int fliaSeleccionada = tabla.getSelectedRow();
+            if(fliaSeleccionada != -1){
+            txtId.setText((String) tabla.getValueAt(fliaSeleccionada, 0).toString() ); // Obtener el valor de la columna 1
+            txtNom.setText((String) tabla.getValueAt(fliaSeleccionada, 1).toString() );
+            txtRUC.setText((String) tabla.getValueAt(fliaSeleccionada, 2).toString() );
+            txtContacto.setText((String) tabla.getValueAt(fliaSeleccionada, 3).toString() );
+            txtSitioW.setText((String) tabla.getValueAt(fliaSeleccionada, 4).toString() );
+            comboCiudad.setSelectedItem((String) tabla.getValueAt(fliaSeleccionada, 5).toString() );
+            btnDelete.setEnabled(true);
+            btnEditar.setEnabled(true);
+            btnAgregar.setEnabled(false);
+            btnActualizar.setEnabled(false);
+            comboCiudad.setEnabled(false);
+            campo(2);
+         }
+           
+        }
         
     }
     
@@ -72,6 +103,23 @@ public class ControladorProveedores extends IF_Proveedor implements ActionListen
         proveedor.setIdCiudad((int) comboId.getSelectedItem());
         
         dao.Insertar(proveedor);
+    
+    }
+    //Read
+    
+    
+    //Update
+    
+    public void Actualizar (Proveedor proveedor){
+        
+            proveedor.setNombreProveedor(txtNom.getText());
+            proveedor.setRUC(txtRUC.getText());
+            proveedor.setContacto(txtContacto.getText());
+            proveedor.setSitioWeb(txtSitioW.getText());
+            proveedor.setIdCiudad(Integer.parseInt((String) comboId.getSelectedItem().toString()));
+            proveedor.setIdProveedor(Integer.parseInt((txtId.getText())));
+        
+        dao.Actualizar(proveedor);
     
     }
     
@@ -106,6 +154,10 @@ public class ControladorProveedores extends IF_Proveedor implements ActionListen
             txtId.setEditable(false);
         }else if (opcion == 4 ){
          txtNom.setEditable(true);
+         comboCiudad.setEnabled(true);
+         txtRUC.setEditable(true);
+         txtContacto.setEditable(true);
+         txtSitioW.setEditable(true);
             txtRUC.requestFocus();
         }
         
