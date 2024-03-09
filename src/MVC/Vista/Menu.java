@@ -7,6 +7,7 @@ package MVC.Vista;
 import MVC.Controlador.ControladorCiudad;
 import MVC.Controlador.ControladorMarca;
 import MVC.Controlador.ControladorPais;
+import MVC.Controlador.ControladorProveedores;
 import com.formdev.flatlaf.FlatLightLaf;
 
 
@@ -38,6 +39,7 @@ public class Menu extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         MI_Articulos = new javax.swing.JMenuItem();
+        MI_Proveedores = new javax.swing.JMenuItem();
         MI_Marcas = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
         MI_Paises = new javax.swing.JMenuItem();
@@ -50,7 +52,7 @@ public class Menu extends javax.swing.JFrame {
         AreaTrabajo.setLayout(AreaTrabajoLayout);
         AreaTrabajoLayout.setHorizontalGroup(
             AreaTrabajoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 952, Short.MAX_VALUE)
+            .addGap(0, 959, Short.MAX_VALUE)
         );
         AreaTrabajoLayout.setVerticalGroup(
             AreaTrabajoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -61,6 +63,14 @@ public class Menu extends javax.swing.JFrame {
 
         MI_Articulos.setText("Articulos");
         jMenu1.add(MI_Articulos);
+
+        MI_Proveedores.setText("Proveedores");
+        MI_Proveedores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MI_ProveedoresActionPerformed(evt);
+            }
+        });
+        jMenu1.add(MI_Proveedores);
 
         MI_Marcas.setText("Marcas");
         MI_Marcas.addActionListener(new java.awt.event.ActionListener() {
@@ -132,6 +142,13 @@ public class Menu extends javax.swing.JFrame {
         C_Ciudad.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void MI_ProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MI_ProveedoresActionPerformed
+      IF_Proveedor InternalFrame = new IF_Proveedor();
+        ControladorProveedores C_Proveedor = new ControladorProveedores(InternalFrame);
+        AreaTrabajo.add(C_Proveedor);
+        C_Proveedor.setVisible(true);
+    }//GEN-LAST:event_MI_ProveedoresActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -172,6 +189,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem MI_Articulos;
     private javax.swing.JMenuItem MI_Marcas;
     private javax.swing.JMenuItem MI_Paises;
+    private javax.swing.JMenuItem MI_Proveedores;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;

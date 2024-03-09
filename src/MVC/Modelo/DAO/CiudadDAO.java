@@ -41,6 +41,7 @@ public class CiudadDAO {
                 JOptionPane.showMessageDialog(null,("No se agrego correctamente") );
             }
         } catch (SQLException e) {
+             System.out.println(e.toString());
         }
         
         
@@ -69,6 +70,7 @@ public class CiudadDAO {
             }
             
         } catch (SQLException e) {
+             System.out.println(e.toString());
         }
         
         return datos;
@@ -96,22 +98,25 @@ public class CiudadDAO {
             }
             
         } catch (SQLException e) {
+             System.out.println(e.toString());
         }
         
         return datos;
     } 
  
 //Update
-  public int Actualizar(int id, String nombre){
+  public int Actualizar(Ciudad ciudad){
         int r = 0; 
         
-        String sql = "UPDATE \"Ciudades\" SET \"NombreCiudad\"= ? WHERE \"idCiudad\" = ?";
+        String sql = "UPDATE \"Ciudades\" SET \"NombreCiudad\"= ? , \"IdPais\"=? WHERE \"idCiudad\" = ?";
         
         try {
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
-            ps.setInt(2, id);
-            ps.setString(1,nombre);
+            
+            ps.setString(1, ciudad.getNombreCiudad());
+            ps.setInt(2, ciudad.getIdPais());
+            ps.setInt(3, ciudad.getIdCiudad());
             r = ps.executeUpdate();
             if (r == 1 ){
                 JOptionPane.showMessageDialog(null, "Se a actualizado correctamento");
@@ -132,7 +137,7 @@ public class CiudadDAO {
   public int Eliminar(int Id){
         int r = 0 ; 
         
-        String sql =" DELETE FROM \"Marcas\" WHERE \"IdMarca\" = " + Id;
+        String sql =" DELETE FROM \"Ciudades\" WHERE \"idCiudad\" = " + Id;
         
         try {
             con = conectar.getConnection();

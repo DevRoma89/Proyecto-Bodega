@@ -3,7 +3,6 @@ package MVC.Controlador;
 
 import MVC.Modelo.Ciudad;
 import MVC.Modelo.DAO.CiudadDAO;
-import MVC.Modelo.Marca;
 import MVC.Vista.IF_Ciudad;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -45,9 +44,11 @@ public final class ControladorCiudad extends IF_Ciudad implements ActionListener
         //Create
         
         if(e.getSource() == btnNuevo){
+            campo(1);
             txtNom.setEditable(true);
             btnAgregar.setEnabled(true);
             comboNombre.setEnabled(true);
+            
         }
         
         if(e.getSource() == btnAgregar){
@@ -57,6 +58,10 @@ public final class ControladorCiudad extends IF_Ciudad implements ActionListener
             ciudad.setIdPais((int) comboId.getSelectedItem());
             
             dao.Insertar(ciudad);
+            
+            txtNom.setText("");
+            limpiarTabla();
+            listarT(tabla);
         
         }
         
@@ -87,6 +92,7 @@ public final class ControladorCiudad extends IF_Ciudad implements ActionListener
         campo(4);
             btnActualizar.setEnabled(true);
             btnDelete.setEnabled(false);
+            comboNombre.setEnabled(true);
             tabla.clearSelection();
         
     }
@@ -210,10 +216,11 @@ public void BuscarT(JTable tabla){
 //Update
     public void actualizar(){
     
-        int id = Integer.parseInt(txtId.getText());
-        String nombre = txtNom.getText();
         
-        dao.Actualizar(id, nombre);
+        ciudad.setNombreCiudad( txtNom.getText());
+        ciudad.setIdPais((int) comboId.getSelectedItem());
+        ciudad.setIdCiudad(Integer.parseInt(txtId.getText()));
+        dao.Actualizar(ciudad);
         
         
     }
