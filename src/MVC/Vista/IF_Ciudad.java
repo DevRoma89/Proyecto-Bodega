@@ -39,7 +39,7 @@ public class IF_Ciudad extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         btnEditar = new javax.swing.JButton();
         btnNuevo = new javax.swing.JButton();
-        txtNom1 = new javax.swing.JTextField();
+        txtNom = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         comboNombre = new javax.swing.JComboBox<>();
         comboId = new javax.swing.JComboBox<>();
@@ -91,8 +91,8 @@ public class IF_Ciudad extends javax.swing.JInternalFrame {
             }
         });
 
-        txtNom1.setEditable(false);
-        txtNom1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtNom.setEditable(false);
+        txtNom.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jLabel3.setText("NOMBRE:");
 
@@ -132,7 +132,7 @@ public class IF_Ciudad extends javax.swing.JInternalFrame {
                                     .addComponent(comboId, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(comboNombre, 0, 114, Short.MAX_VALUE))
-                                .addComponent(txtNom1)))))
+                                .addComponent(txtNom)))))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -145,7 +145,7 @@ public class IF_Ciudad extends javax.swing.JInternalFrame {
                 .addGap(6, 6, 6)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -272,7 +272,7 @@ public class IF_Ciudad extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "ID", "NOMBRE"
+                "ID", "NOMBRE", "PAIS"
             }
         ));
         tabla.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -381,6 +381,6 @@ public class IF_Ciudad extends javax.swing.JInternalFrame {
     public javax.swing.JTable tabla;
     public javax.swing.JTextField txtBusqueda;
     public javax.swing.JTextField txtId;
-    public javax.swing.JTextField txtNom1;
+    public javax.swing.JTextField txtNom;
     // End of variables declaration//GEN-END:variables
 }

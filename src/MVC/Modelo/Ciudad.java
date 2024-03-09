@@ -5,16 +5,27 @@ public class Ciudad {
     private int IdCiudad;
     private String NombreCiudad;
     private int IdPais;
+    private String NombrePais;
 
     public Ciudad() {
     }
 
-    public Ciudad(int IdCiudad, String NombrePais, int IdPais) {
+    public Ciudad(int IdCiudad, String NombreCiudad, int IdPais, String NombrePais) {
         this.IdCiudad = IdCiudad;
         this.NombreCiudad = NombreCiudad;
         this.IdPais = IdPais;
+        this.NombrePais = NombrePais;
     }
 
+    public String getNombrePais() {
+        return NombrePais;
+    }
+
+    public void setNombrePais(String NombrePais) {
+        this.NombrePais = NombrePais;
+    }
+
+   
     public int getIdCiudad() {
         return IdCiudad;
     }
@@ -27,7 +38,7 @@ public class Ciudad {
         return  NombreCiudad;
     }
 
-    public void setNombreCiudad(String NombrePais) {
+    public void setNombreCiudad(String NombreCiudad) {
         this. NombreCiudad =  NombreCiudad;
     }
 
