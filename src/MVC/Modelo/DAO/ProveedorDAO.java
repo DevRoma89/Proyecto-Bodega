@@ -2,7 +2,7 @@
 
 package MVC.Modelo.DAO;
 
-import MVC.Modelo.Ciudad;
+
 import MVC.Modelo.Conexion;
 import MVC.Modelo.Proveedor;
 import java.sql.Connection;
@@ -58,6 +58,36 @@ public class ProveedorDAO {
     }
     
     //Read
+     public List Buscar(String buscar){
+        List<Proveedor> datos = new ArrayList<>();
+        
+        try {
+            String sql = "SELECT p.\"IdProveedor\" , p.\"Nombre\" , p.\"RUC\" , p.\"Contacto\" , p.\"SitioWeb\" , c.\"NombreCiudad\"\n" +
+                         "FROM \"Proveedores\" as p \n" +
+                         "INNER JOIN \"Ciudades\" as c ON p.\"IdCiudad\" = c.\"idCiudad\" \n" +
+                         "WHERE p.\"Nombre\" ILIKE ? "; 
+            con = conectar.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setString(1, "%" + buscar + "%"  );
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+            
+            proveedor.setIdProveedor(rs.getInt(1));
+                proveedor.setNombreProveedor(rs.getString(2));
+                proveedor.setRUC(rs.getString(3));
+                proveedor.setContacto(rs.getString(4));
+                proveedor.setSitioWeb(rs.getString(5));
+                proveedor.setNombreCiudad(rs.getString(6));
+                datos.add(proveedor);
+            }
+            
+        } catch (SQLException e) {
+             System.out.println(e.toString());
+        }
+        
+        return datos;
+    } 
     
     public List Listar (){
         
@@ -134,6 +164,32 @@ public class ProveedorDAO {
     }
     
     //Delete 
+    
+    public int Eliminar(Proveedor proveedor){
+    
+        int r = 0 ; 
+        
+         String sql =" DELETE FROM \"Proveedores\" WHERE \"IdProveedor\" = " + proveedor.getIdProveedor();
+        
+        try {
+            con = conectar.getConnection();
+            ps = con.prepareStatement(sql);
+            r = ps.executeUpdate(); 
+            
+            if (r == 1 ){
+                JOptionPane.showMessageDialog(null, "Se a elimino correctamento");
+                return 1;  
+            }else{
+                JOptionPane.showMessageDialog(null, "No se a eliminado");
+                return 0;
+            }
+        } catch (SQLException e) {
+            System.out.println(e.toString());
+        }
+        return r ;
+        
+    
+    }
     
     //AUX
     public JComboBox CB_Ciudad(JComboBox comboId, JComboBox comboNombre){

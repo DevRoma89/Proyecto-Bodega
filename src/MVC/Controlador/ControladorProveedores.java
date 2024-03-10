@@ -48,8 +48,18 @@ public class ControladorProveedores extends IF_Proveedor implements ActionListen
         }
         //Read
         if( e.getSource() == btnListar){
+            limpiarTabla();
             listarT(tabla);
         }
+        
+        if(e.getSource() == btnBuscar){
+            limpiarTabla();
+            BuscarT(tabla);
+            campo(3);
+                btnEditar.setEnabled(false);
+                btnDelete.setEnabled(false);
+        }
+        
         //Update 
         if(e.getSource() == btnEditar){
         
@@ -63,6 +73,8 @@ public class ControladorProveedores extends IF_Proveedor implements ActionListen
             Actualizar(proveedor);
         
         }
+        
+        
         
         
         
@@ -199,5 +211,23 @@ public class ControladorProveedores extends IF_Proveedor implements ActionListen
     
     }
     
+    public void BuscarT(JTable tabla){
+        modelo = (DefaultTableModel) tabla.getModel();
+        tabla.setModel(modelo);
+        String buscar = txtBusqueda.getText();
+        List<Proveedor> lista =dao.Buscar(buscar);
+        Object[] objeto = new Object[6];
+        for (int i = 0 ; i < lista.size(); i++ ){
+            objeto[0] = lista.get(i).getIdProveedor();
+            objeto[1] = lista.get(i).getNombreProveedor();
+            objeto[2] = lista.get(i).getRUC();
+            objeto[3] = lista.get(i).getContacto();
+            objeto[4] = lista.get(i).getSitioWeb();
+            objeto[5] = lista.get(i).getNombreCiudad();
+            
+            modelo.addRow(objeto);
+        }
+    
+    }
     
 }
