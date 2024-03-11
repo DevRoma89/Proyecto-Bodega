@@ -37,7 +37,7 @@ public class IF_Articulo extends javax.swing.JInternalFrame {
         btnNuevo = new javax.swing.JButton();
         txtNom = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        comboCiudad = new javax.swing.JComboBox<>();
+        comboMarca = new javax.swing.JComboBox<>();
         comboId = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
@@ -85,10 +85,10 @@ public class IF_Articulo extends javax.swing.JInternalFrame {
 
         jLabel3.setText("NOMBRE:");
 
-        comboCiudad.setEditable(true);
-        comboCiudad.addActionListener(new java.awt.event.ActionListener() {
+        comboMarca.setEditable(true);
+        comboMarca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboCiudadActionPerformed(evt);
+                comboMarcaActionPerformed(evt);
             }
         });
 
@@ -126,7 +126,7 @@ public class IF_Articulo extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(comboId, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(comboCiudad, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(comboMarca, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(4, 4, 4))
         );
         jPanel4Layout.setVerticalGroup(
@@ -145,7 +145,7 @@ public class IF_Articulo extends javax.swing.JInternalFrame {
                     .addComponent(jLabel7)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(comboId, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(comboCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(comboMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -350,9 +350,9 @@ public class IF_Articulo extends javax.swing.JInternalFrame {
         });
     }//GEN-LAST:event_comboIdActionPerformed
 
-    private void comboCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCiudadActionPerformed
+    private void comboMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboMarcaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_comboCiudadActionPerformed
+    }//GEN-LAST:event_comboMarcaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -363,8 +363,8 @@ public class IF_Articulo extends javax.swing.JInternalFrame {
     public javax.swing.JButton btnEditar;
     public javax.swing.JButton btnListar;
     public javax.swing.JButton btnNuevo;
-    public javax.swing.JComboBox<String> comboCiudad;
     public javax.swing.JComboBox<String> comboId;
+    public javax.swing.JComboBox<String> comboMarca;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel7;
