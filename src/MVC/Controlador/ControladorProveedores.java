@@ -7,6 +7,7 @@ import MVC.Vista.IF_Proveedor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -40,12 +41,25 @@ public class ControladorProveedores extends IF_Proveedor implements ActionListen
         //Create 
         if( e.getSource() == btnNuevo){
            campo(1);
+           txtNom.setEditable(true);
+            btnAgregar.setEnabled(true);
+            comboCiudad.setEnabled(true);
         }
         
         if( e.getSource() == btnAgregar){
             Agregar();
             campo(3);
+            limpiarTabla();
+            listarT(tabla);
         }
+        
+        if(e.getSource() == comboCiudad){
+        
+            int NombreSeleccionado = comboCiudad.getSelectedIndex();
+            comboId.setSelectedIndex(NombreSeleccionado);
+        
+        }
+        
         //Read
         if( e.getSource() == btnListar){
             limpiarTabla();
@@ -56,8 +70,8 @@ public class ControladorProveedores extends IF_Proveedor implements ActionListen
             limpiarTabla();
             BuscarT(tabla);
             campo(3);
-                btnEditar.setEnabled(false);
-                btnDelete.setEnabled(false);
+            btnEditar.setEnabled(false);
+            btnDelete.setEnabled(false);
         }
         
         //Update 
@@ -65,16 +79,27 @@ public class ControladorProveedores extends IF_Proveedor implements ActionListen
         
             campo(4);
             btnActualizar.setEnabled(true);
+            btnDelete.setEnabled(false);
+            comboCiudad.setEnabled(true);
+            tabla.clearSelection();
             
         }
         
         if( e.getSource() == btnActualizar){
         
             Actualizar(proveedor);
-        
+            limpiarTabla();
+            BuscarT(tabla);
         }
         
-        
+        //delete
+        if(e.getSource()== btnDelete){
+        eliminar();
+        limpiarTabla();
+        listarT(tabla);  
+        campo(3);
+     
+    }
         
         
         
@@ -135,6 +160,21 @@ public class ControladorProveedores extends IF_Proveedor implements ActionListen
     
     }
     
+    //Delete
+    
+     public void eliminar(){
+    
+        int fila = tabla.getSelectedRow();
+        if (fila == -1 ){
+         JOptionPane.showMessageDialog(null,"Debe Seleccionar una Fila...!!!");
+        }else {
+            proveedor.setIdProveedor(Integer.parseInt((String) tabla.getValueAt(fila, 0).toString()));
+            dao.Eliminar(proveedor);
+           
+            
+        }
+    
+    }
     
     
     //AUX
@@ -154,7 +194,9 @@ public class ControladorProveedores extends IF_Proveedor implements ActionListen
         }else if (opcion == 2 ){
             txtNom.setEditable(false);
             txtId.setEditable(false);
-          
+            txtRUC.setEditable(false);
+            txtContacto.setEditable(false);
+            txtSitioW.setEditable(false);
             
         }else if (opcion == 3 ){
             txtId.setText("");
@@ -162,8 +204,11 @@ public class ControladorProveedores extends IF_Proveedor implements ActionListen
             txtRUC.setText("");
             txtContacto.setText("");
             txtSitioW.setText("");
-            txtNom.setEditable(false);
+             txtNom.setEditable(false);
             txtId.setEditable(false);
+            txtRUC.setEditable(false);
+            txtContacto.setEditable(false);
+            txtSitioW.setEditable(false);
         }else if (opcion == 4 ){
          txtNom.setEditable(true);
          comboCiudad.setEnabled(true);

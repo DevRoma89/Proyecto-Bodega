@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package MVC.Vista;
+import MVC.Controlador.ControladorArticulo;
 import MVC.Controlador.ControladorCiudad;
 import MVC.Controlador.ControladorMarca;
 import MVC.Controlador.ControladorPais;
@@ -62,6 +63,11 @@ public class Menu extends javax.swing.JFrame {
         jMenu1.setText("Gestion");
 
         MI_Articulos.setText("Articulos");
+        MI_Articulos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MI_ArticulosActionPerformed(evt);
+            }
+        });
         jMenu1.add(MI_Articulos);
 
         MI_Proveedores.setText("Proveedores");
@@ -148,6 +154,13 @@ public class Menu extends javax.swing.JFrame {
         AreaTrabajo.add(C_Proveedor);
         C_Proveedor.setVisible(true);
     }//GEN-LAST:event_MI_ProveedoresActionPerformed
+
+    private void MI_ArticulosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MI_ArticulosActionPerformed
+     IF_Articulo InternalFrame = new IF_Articulo();
+     ControladorArticulo C_Articulo = new ControladorArticulo(InternalFrame);
+     AreaTrabajo.add(C_Articulo);
+     C_Articulo.setVisible(true);
+    }//GEN-LAST:event_MI_ArticulosActionPerformed
 
     /**
      * @param args the command line arguments

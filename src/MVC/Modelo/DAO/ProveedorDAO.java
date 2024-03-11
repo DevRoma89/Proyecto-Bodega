@@ -203,7 +203,8 @@ public class ProveedorDAO {
             while(rs.next()){
             int id = rs.getInt("IdCiudad");
             String nombre = rs.getString("NombreCIudad");
-
+                System.out.println(id);
+                System.out.println(nombre);
             comboNombre.addItem(nombre);
             comboId.addItem(id);
                 
