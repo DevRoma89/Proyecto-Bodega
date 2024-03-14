@@ -6,6 +6,7 @@
 package MVC.Vista;
 import MVC.Controlador.ControladorArticulo;
 import MVC.Controlador.ControladorCiudad;
+import MVC.Controlador.ControladorCompra;
 import MVC.Controlador.ControladorMarca;
 import MVC.Controlador.ControladorPais;
 import MVC.Controlador.ControladorProveedores;
@@ -45,6 +46,7 @@ public class Menu extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         MI_Paises = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -105,6 +107,15 @@ public class Menu extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Facturacion");
+
+        jMenuItem2.setText("Compras");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem2);
+
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Reportes");
@@ -162,6 +173,13 @@ public class Menu extends javax.swing.JFrame {
      C_Articulo.setVisible(true);
     }//GEN-LAST:event_MI_ArticulosActionPerformed
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        IF_Compra InternalFrame = new IF_Compra();
+        ControladorCompra C_Compra = new ControladorCompra(InternalFrame);
+        AreaTrabajo.add(C_Compra);
+        C_Compra.setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -208,5 +226,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     // End of variables declaration//GEN-END:variables
 }
