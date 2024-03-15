@@ -65,6 +65,7 @@ public class Login extends javax.swing.JFrame {
         panel_login.setMaximumSize(new java.awt.Dimension(690, 640));
 
         txtUsuario.setBackground(new java.awt.Color(204, 204, 204));
+        txtUsuario.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         txtUsuario.setBorder(null);
         txtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,6 +91,7 @@ public class Login extends javax.swing.JFrame {
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
 
         txtContraseña.setBackground(new java.awt.Color(204, 204, 204));
+        txtContraseña.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         txtContraseña.setBorder(null);
 
         javax.swing.GroupLayout panel_loginLayout = new javax.swing.GroupLayout(panel_login);
@@ -178,7 +180,7 @@ public class Login extends javax.swing.JFrame {
         );
         fondoLayout.setVerticalGroup(
             fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(fondoLayout.createSequentialGroup()
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(fondoLayout.createSequentialGroup()
@@ -187,7 +189,7 @@ public class Login extends javax.swing.JFrame {
                         .addGap(46, 46, 46))
                     .addGroup(fondoLayout.createSequentialGroup()
                         .addGap(100, 100, 100)
-                        .addComponent(panel_login, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)))
+                        .addComponent(panel_login, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(94, 94, 94))
         );
 

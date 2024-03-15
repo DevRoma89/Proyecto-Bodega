@@ -32,6 +32,9 @@ public class ControladorLogin extends Login implements ActionListener {
               m.setVisible(true);
               cerrarVentana();
           
+          }else{
+              txtUsuario.setText("");
+              txtContraseña.setText("");
           }
       
       }
