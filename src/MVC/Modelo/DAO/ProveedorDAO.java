@@ -1,7 +1,4 @@
-
-
 package MVC.Modelo.DAO;
-
 
 import MVC.Modelo.Conexion;
 import MVC.Modelo.Proveedor;
@@ -16,92 +13,60 @@ import javax.swing.JOptionPane;
 
 public class ProveedorDAO {
 
-    Connection con ;
+    Connection con;
     PreparedStatement ps;
-    ResultSet rs ; 
+    ResultSet rs;
     Proveedor proveedor = new Proveedor();
     Conexion conectar = new Conexion();
-    
-    
+
     //Create
-    
-    public int Insertar(Proveedor proveedor){
-        int r = 0 ;
-        
+    public int Insertar(Proveedor proveedor) {
+        int r = 0;
+
         String sql = "Insert into \"Proveedores\" (\"Nombre\", \"RUC\", \"Contacto\", \"SitioWeb\", \"IdCiudad\") VALUES (?,?,?,?,?)";
-        
+
         try {
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
-            
-            ps.setString(1,proveedor.getNombreProveedor());
-            ps.setString(2,proveedor.getRUC());
-            ps.setString(3,proveedor.getContacto());
-            ps.setString(4,proveedor.getSitioWeb());
-            ps.setInt(5,proveedor.getIdCiudad());
-            
+
+            ps.setString(1, proveedor.getNombreProveedor());
+            ps.setString(2, proveedor.getRUC());
+            ps.setString(3, proveedor.getContacto());
+            ps.setString(4, proveedor.getSitioWeb());
+            ps.setInt(5, proveedor.getIdCiudad());
+
             r = ps.executeUpdate();
-            
-            if( r == 1){
+
+            if (r == 1) {
                 JOptionPane.showMessageDialog(null, "Se a agregado correctamento");
                 return 1;
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(null, "No se a agregado correctamento");
                 return 0;
             }
-            
+
         } catch (Exception e) {
             System.out.println(e.toString());
         }
-        
-        return r ;
+
+        return r;
     }
-    
+
     //Read
-     public List Buscar(String buscar){
+    public List Buscar(String buscar) {
         List<Proveedor> datos = new ArrayList<>();
-        
+
         try {
-            String sql = "SELECT p.\"IdProveedor\" , p.\"Nombre\" , p.\"RUC\" , p.\"Contacto\" , p.\"SitioWeb\" , c.\"NombreCiudad\"\n" +
-                         "FROM \"Proveedores\" as p \n" +
-                         "INNER JOIN \"Ciudades\" as c ON p.\"IdCiudad\" = c.\"idCiudad\" \n" +
-                         "WHERE p.\"Nombre\" ILIKE ? "; 
+            String sql = "SELECT p.\"IdProveedor\" , p.\"Nombre\" , p.\"RUC\" , p.\"Contacto\" , p.\"SitioWeb\" , c.\"NombreCiudad\"\n"
+                    + "FROM \"Proveedores\" as p \n"
+                    + "INNER JOIN \"Ciudades\" as c ON p.\"IdCiudad\" = c.\"idCiudad\" \n"
+                    + "WHERE p.\"Nombre\" ILIKE ? ";
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
-            ps.setString(1, "%" + buscar + "%"  );
+            ps.setString(1, "%" + buscar + "%");
             rs = ps.executeQuery();
-            
-            while(rs.next()){
-            
-            proveedor.setIdProveedor(rs.getInt(1));
-                proveedor.setNombreProveedor(rs.getString(2));
-                proveedor.setRUC(rs.getString(3));
-                proveedor.setContacto(rs.getString(4));
-                proveedor.setSitioWeb(rs.getString(5));
-                proveedor.setNombreCiudad(rs.getString(6));
-                datos.add(proveedor);
-            }
-            
-        } catch (SQLException e) {
-             System.out.println(e.toString());
-        }
-        
-        return datos;
-    } 
-    
-    public List Listar (){
-        
-         List<Proveedor> datos = new ArrayList<>();
-        
-        try {
-            String sql = "SELECT p.\"IdProveedor\" , p.\"Nombre\" , p.\"RUC\" , p.\"Contacto\" , p.\"SitioWeb\" , c.\"NombreCiudad\"  \n" +
-                         "FROM \"Proveedores\" as p \n" +
-                         "INNER JOIN \"Ciudades\" as c ON p.\"IdCiudad\" = c.\"idCiudad\"    ";
-            con = conectar.getConnection();
-            ps = con.prepareStatement(sql);
-            rs = ps.executeQuery();
-           
-            while(rs.next()){
+
+            while (rs.next()) {
                 Proveedor proveedor = new Proveedor();
                 proveedor.setIdProveedor(rs.getInt(1));
                 proveedor.setNombreProveedor(rs.getString(2));
@@ -111,113 +76,162 @@ public class ProveedorDAO {
                 proveedor.setNombreCiudad(rs.getString(6));
                 datos.add(proveedor);
             }
-            
+
         } catch (SQLException e) {
-             System.out.println(e.toString());
+            System.out.println(e.toString());
         }
-        
+
         return datos;
-    
     }
-    
+
+    public List Buscar2(String buscar) {
+        List<Proveedor> datos = new ArrayList<>();
+
+        try {
+            String sql = " SELECT \"IdProveedor\" ,\"Nombre\" \n"
+                    + "FROM \"Proveedores\"\n"
+                    + "WHERE \"Nombre\" ILIKE ? ";
+            con = conectar.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setString(1,"%" + buscar + "%");
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Proveedor proveedor = new Proveedor();
+                proveedor.setIdProveedor(rs.getInt(1));
+                proveedor.setNombreProveedor(rs.getString(2));
+                datos.add(proveedor);
+                
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e.toString());
+        }
+
+        return datos;
+    }
+
+    public List Listar() {
+
+        List<Proveedor> datos = new ArrayList<>();
+
+        try {
+            String sql = "SELECT p.\"IdProveedor\" , p.\"Nombre\" , p.\"RUC\" , p.\"Contacto\" , p.\"SitioWeb\" , c.\"NombreCiudad\"  \n"
+                    + "FROM \"Proveedores\" as p \n"
+                    + "INNER JOIN \"Ciudades\" as c ON p.\"IdCiudad\" = c.\"idCiudad\"    ";
+            con = conectar.getConnection();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                
+                Proveedor proveedor = new Proveedor();
+                proveedor.setIdProveedor(rs.getInt(1));
+                proveedor.setNombreProveedor(rs.getString(2));
+                proveedor.setRUC(rs.getString(3));
+                proveedor.setContacto(rs.getString(4));
+                proveedor.setSitioWeb(rs.getString(5));
+                proveedor.setNombreCiudad(rs.getString(6));
+                datos.add(proveedor);
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e.toString());
+        }
+
+        return datos;
+
+    }
+
     //Update
-    
-    public int Actualizar (Proveedor proveedor){
-    
-        int r = 0 ;
-        
-        String sql = "UPDATE \"Proveedores\"\n" +
-                     "SET \"Nombre\"= ?, \"RUC\"=?, \"Contacto\"=?, \"SitioWeb\"=?, \"IdCiudad\"=?\n" +
-                     "WHERE \"IdProveedor\" = ? ";
-        
+    public int Actualizar(Proveedor proveedor) {
+
+        int r = 0;
+
+        String sql = "UPDATE \"Proveedores\"\n"
+                + "SET \"Nombre\"= ?, \"RUC\"=?, \"Contacto\"=?, \"SitioWeb\"=?, \"IdCiudad\"=?\n"
+                + "WHERE \"IdProveedor\" = ? ";
+
         try {
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
-            
+
             ps.setString(1, proveedor.getNombreProveedor());
             ps.setString(2, proveedor.getRUC());
             ps.setString(3, proveedor.getContacto());
             ps.setString(4, proveedor.getSitioWeb());
             ps.setInt(5, proveedor.getIdCiudad());
             ps.setInt(6, proveedor.getIdProveedor());
-            
+
             r = ps.executeUpdate();
-            
-            if( r == 1 ){
-                
+
+            if (r == 1) {
+
                 JOptionPane.showMessageDialog(null, "Se actualizo correctamente");
-                
-            }else{
-            
+
+            } else {
+
                 JOptionPane.showMessageDialog(null, "No se pudo actualizar");
-                
+
             }
-            
+
         } catch (Exception e) {
             System.out.println(e.toString());
         }
-        
-        
-        return r ;
-    
-    
+
+        return r;
+
     }
-    
+
     //Delete 
-    
-    public int Eliminar(Proveedor proveedor){
-    
-        int r = 0 ; 
-        
-         String sql =" DELETE FROM \"Proveedores\" WHERE \"IdProveedor\" = " + proveedor.getIdProveedor();
-        
+    public int Eliminar(Proveedor proveedor) {
+
+        int r = 0;
+
+        String sql = " DELETE FROM \"Proveedores\" WHERE \"IdProveedor\" = " + proveedor.getIdProveedor();
+
         try {
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
-            r = ps.executeUpdate(); 
-            
-            if (r == 1 ){
+            r = ps.executeUpdate();
+
+            if (r == 1) {
                 JOptionPane.showMessageDialog(null, "Se a elimino correctamento");
-                return 1;  
-            }else{
+                return 1;
+            } else {
                 JOptionPane.showMessageDialog(null, "No se a eliminado");
                 return 0;
             }
         } catch (SQLException e) {
             System.out.println(e.toString());
         }
-        return r ;
-        
-    
+        return r;
+
     }
-    
+
     //AUX
-    public JComboBox CB_Ciudad(JComboBox comboId, JComboBox comboNombre){
-        
-        String sql =" SELECT \"idCiudad\" , \"NombreCiudad\" FROM \"Ciudades\" ";
+    public JComboBox CB_Ciudad(JComboBox comboId, JComboBox comboNombre) {
+
+        String sql = " SELECT \"idCiudad\" , \"NombreCiudad\" FROM \"Ciudades\" ";
         try {
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
 
-            while(rs.next()){
-            int id = rs.getInt("IdCiudad");
-            String nombre = rs.getString("NombreCIudad");
+            while (rs.next()) {
+                int id = rs.getInt("IdCiudad");
+                String nombre = rs.getString("NombreCIudad");
                 System.out.println(id);
                 System.out.println(nombre);
-            comboNombre.addItem(nombre);
-            comboId.addItem(id);
-                
+                comboNombre.addItem(nombre);
+                comboId.addItem(id);
+
             }
-            
-            
+
         } catch (SQLException e) {
         }
         return null;
-        
-    }
-    
-    
 
-    
+    }
+
 }

@@ -2,6 +2,7 @@ package MVC.Controlador;
 
 import MVC.Modelo.DAO.LoginDAO;
 import MVC.Modelo.Usuario;
+import MVC.Modelo.UsuarioActual;
 import MVC.Vista.Login;
 import MVC.Vista.Menu;
 import java.awt.event.ActionEvent;
@@ -30,6 +31,9 @@ public class ControladorLogin extends Login implements ActionListener {
               
               Menu m = new Menu();
               m.setVisible(true);
+              
+              UsuarioActual.setUsuario(usuario);
+              
               cerrarVentana();
           
           }else{

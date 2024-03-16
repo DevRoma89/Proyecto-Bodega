@@ -7,6 +7,7 @@ package MVC.Vista;
 
 import javax.swing.JButton;
 import javax.swing.plaf.basic.BasicComboBoxUI;
+import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 
 /**
  *
@@ -98,6 +99,11 @@ public class IF_Proveedor extends javax.swing.JInternalFrame {
         jLabel3.setText("NOMBRE:");
 
         comboCiudad.setEditable(true);
+        comboCiudad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboCiudadActionPerformed(evt);
+            }
+        });
 
         comboId.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         comboId.setEnabled(false);
@@ -387,12 +393,16 @@ public class IF_Proveedor extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:s
     }//GEN-LAST:event_btnListarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void comboCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCiudadActionPerformed
+        AutoCompleteDecorator.decorate(this.comboCiudad);
+    }//GEN-LAST:event_comboCiudadActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
