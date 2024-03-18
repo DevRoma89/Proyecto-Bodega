@@ -29,7 +29,7 @@ public class Login extends javax.swing.JFrame {
     
     
     public void cerrarVentana() {
-        this.dispose(); // Llama al método dispose() para cerrar la ventana
+        this.dispose(); 
     }
     
     @SuppressWarnings("unchecked")
@@ -79,6 +79,11 @@ public class Login extends javax.swing.JFrame {
         login_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 login_btnActionPerformed(evt);
+            }
+        });
+        login_btn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                login_btnKeyPressed(evt);
             }
         });
 
@@ -214,6 +219,10 @@ public class Login extends javax.swing.JFrame {
     private void login_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_btnActionPerformed
 
     }//GEN-LAST:event_login_btnActionPerformed
+
+    private void login_btnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_login_btnKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_login_btnKeyPressed
 
     /**
      * @param args the command line arguments

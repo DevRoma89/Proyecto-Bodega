@@ -2,8 +2,6 @@ package MVC.Modelo.DAO;
 
 import MVC.Modelo.Conexion;
 import MVC.Modelo.Usuario;
-import MVC.Vista.Login;
-import MVC.Vista.Menu;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,33 +15,35 @@ public class LoginDAO {
     ResultSet rs;
     Conexion conectar = new Conexion();
     Usuario usuario = new Usuario();
-   
-    public boolean ValidarUsuario(Usuario user) {
-        
-        String sql = " select \"User\" , \"Pass\"\n"
+
+    public int ValidarUsuario(Usuario user) {
+        int r = 0;
+        String sql = " select \"IdUsuario\" , \"User\" , \"Pass\"\n"
                 + "    From \"Usuarios\"\n"
                 + "    Where \"User\" = ? and \"Pass\"= ? ";
 
         try {
             con = conectar.getConnection();
-            ps = con.prepareCall(sql);
+            ps = con.prepareStatement(sql);
             ps.setString(1, user.getUser());
             ps.setString(2, user.getPass());
             rs = ps.executeQuery();
 
             if (rs.next()) {
-
                 JOptionPane.showMessageDialog(null, "Datos ingresados correctamente");
-                return true;
+                r = rs.getInt(1);
+                
+                return r;
 
             } else {
                 JOptionPane.showMessageDialog(null, "Datos ingresados incorrectamente");
-               
+
             }
 
         } catch (SQLException e) {
+            System.out.println(e.toString());
         }
-        return false;
+        return 0;
 
     }
 

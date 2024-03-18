@@ -10,8 +10,8 @@ public class Compra {
     private double TotalCompra;
     private int IdProveedor;
     private int IdDetalleC;
-    private int FkIdCompra;
     private int FkIdArticulo;
+    private String NombreArticulo;
     private int CantidadArticulo;
     private double PrecioArticulo;
     private double TotalDetalle;
@@ -19,15 +19,15 @@ public class Compra {
     public Compra() {
     }
 
-    public Compra(int IdCompra, Date FechaCompra, int IdUsuario, double TotalCompra, int IdProveedor, int IdDetalleC, int FkIdCompra, int FkIdArticulo, int CantidadArticulo, double PrecioArticulo, double TotalDetalle) {
+    public Compra(int IdCompra, Date FechaCompra, int IdUsuario, double TotalCompra, int IdProveedor, int IdDetalleC, int FkIdArticulo, String NombreArticulo, int CantidadArticulo, double PrecioArticulo, double TotalDetalle) {
         this.IdCompra = IdCompra;
         this.FechaCompra = FechaCompra;
         this.IdUsuario = IdUsuario;
         this.TotalCompra = TotalCompra;
         this.IdProveedor = IdProveedor;
         this.IdDetalleC = IdDetalleC;
-        this.FkIdCompra = FkIdCompra;
         this.FkIdArticulo = FkIdArticulo;
+        this.NombreArticulo = NombreArticulo;
         this.CantidadArticulo = CantidadArticulo;
         this.PrecioArticulo = PrecioArticulo;
         this.TotalDetalle = TotalDetalle;
@@ -81,20 +81,20 @@ public class Compra {
         this.IdDetalleC = IdDetalleC;
     }
 
-    public int getFkIdCompra() {
-        return FkIdCompra;
-    }
-
-    public void setFkIdCompra(int FkIdCompra) {
-        this.FkIdCompra = FkIdCompra;
-    }
-
     public int getFkIdArticulo() {
         return FkIdArticulo;
     }
 
     public void setFkIdArticulo(int FkIdArticulo) {
         this.FkIdArticulo = FkIdArticulo;
+    }
+
+    public String getNombreArticulo() {
+        return NombreArticulo;
+    }
+
+    public void setNombreArticulo(String NombreArticulo) {
+        this.NombreArticulo = NombreArticulo;
     }
 
     public int getCantidadArticulo() {
@@ -120,8 +120,6 @@ public class Compra {
     public void setTotalDetalle(double TotalDetalle) {
         this.TotalDetalle = TotalDetalle;
     }
-    
 
-
-    
+        
 }

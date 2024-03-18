@@ -10,8 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
+
 
 public class ArticuloDAO {
 
@@ -109,7 +108,34 @@ public class ArticuloDAO {
 
         return datos;
     }
+    
+    public List Buscar2(String Busqueda) {
+        List<Articulo> datos = new ArrayList<>();
 
+        try {
+            String sql = "SELECT \"idArticulo\", \"Nombre\" \n"
+                    + "FROM \"Articulos\" \n"
+                    + "WHERE \"Nombre"
+                    + "\" ILIKE ? ";
+            con = conectar.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setString(1, "%" + Busqueda + "%");
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Articulo articulo = new Articulo();
+                articulo.setIdArticulo(rs.getInt(1));
+                articulo.setNombre(rs.getString(2));
+                datos.add(articulo);
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e.toString());
+        }
+
+        return datos;
+    }
+    
     //Update
     public int Actualizar(Articulo articulo) {
         int r = 0;

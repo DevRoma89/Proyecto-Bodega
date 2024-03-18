@@ -7,7 +7,7 @@ package MVC.Vista;
 
 import javax.swing.JButton;
 import javax.swing.plaf.basic.BasicComboBoxUI;
-import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
+
 
 /**
  *
@@ -401,7 +401,7 @@ public class IF_Proveedor extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void comboCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCiudadActionPerformed
-        AutoCompleteDecorator.decorate(this.comboCiudad);
+      
     }//GEN-LAST:event_comboCiudadActionPerformed
 
 

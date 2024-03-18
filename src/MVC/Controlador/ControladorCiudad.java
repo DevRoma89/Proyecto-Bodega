@@ -124,13 +124,6 @@ public final class ControladorCiudad extends IF_Ciudad implements ActionListener
             if(fliaSeleccionada != -1){
             txtId.setText((String) tabla.getValueAt(fliaSeleccionada, 0).toString() ); // Obtener el valor de la columna 1
             txtNom.setText((String) tabla.getValueAt(fliaSeleccionada, 1).toString() );
-            comboNombre.setSelectedItem((String) tabla.getValueAt(fliaSeleccionada, 2).toString() );
-            btnDelete.setEnabled(true);
-            btnEditar.setEnabled(true);
-            btnAgregar.setEnabled(false);
-            btnActualizar.setEnabled(false);
-            comboNombre.setEnabled(false);
-            campo(2);
          }
            
         }  
